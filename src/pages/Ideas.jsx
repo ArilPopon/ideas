@@ -18,7 +18,7 @@ function Ideas() {
 
     useEffect(() => {
         axios
-            .get(`/api/api/ideas?page[number]=${page}&page[size]=${pageSize}&append[]=small_image&sort=${sort}`)
+            .get(`${import.meta.env.VITE_API_URL}/api/ideas?page[number]=${page}&page[size]=${pageSize}&append[]=small_image&sort=${sort}`)
             .then((res) => {
                 setPosts(res.data.data);
                 setTotal(res.data.meta.total);
