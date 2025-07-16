@@ -18,7 +18,7 @@ function Ideas() {
 
     useEffect(() => {
         axios
-            .get(`${import.meta.env.VITE_API_URL}/api/ideas?page[number]=${page}&page[size]=${pageSize}&append[]=small_image&sort=${sort}`)
+            .get(`/api/api/ideas?page[number]=${page}&page[size]=${pageSize}&append[]=small_image&sort=${sort}`)
             .then((res) => {
                 setPosts(res.data.data);
                 setTotal(res.data.meta.total);
@@ -39,7 +39,7 @@ function Ideas() {
 
             <div className="max-w-7xl mx-auto px-4 py-10">
                 {/* Top control (showing & dropdown) */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 text-sm gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 text-sm gap-4 font-semibold">
                     <span>
                         Showing {((page - 1) * pageSize + 1)} - {Math.min(page * pageSize, total)} of {total}
                     </span>
